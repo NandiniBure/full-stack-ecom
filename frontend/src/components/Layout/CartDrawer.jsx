@@ -5,11 +5,11 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { featchCart } from "../../../redux/slices/cartSlice";
 
-const CartDrawer = ({ drawerOpen, toggleCartDrawer }: { drawerOpen : any, toggleCartDrawer : any }) => {
+const CartDrawer = ({ drawerOpen, toggleCartDrawer }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user, guestId } = useSelector((state: any) => state.auth);
-  const { cart } = useSelector((state: any) => state.cart);
+  const { user, guestId } = useSelector((state) => state.auth);
+  const { cart } = useSelector((state) => state.cart);
   const userId = user ? user.id : "";
 
 

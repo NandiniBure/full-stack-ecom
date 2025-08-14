@@ -6,7 +6,7 @@ export const MyOrder = () => {
  const navigate = useNavigate();
   const dispatch = useDispatch();
   
-  const { orders, loading, error } = useSelector((state: any) => state.orders);
+  const { orders, loading, error } = useSelector((state) => state.orders);
 
 
   console.log("order", orders);
@@ -15,7 +15,7 @@ export const MyOrder = () => {
     dispatch(featchUserOrder());
   },[dispatch])
 
-  const handleRowClick = (orderId : any) => {
+  const handleRowClick = (orderId) => {
     navigate(`/order/${orderId}`);  
   }
 
@@ -45,7 +45,7 @@ export const MyOrder = () => {
           </thead>
           <tbody>
             {orders?.length > 0 ? (
-              orders.map((order: any) => (
+              orders.map((order) => (
                 <tr
                   key={order._id}
                   onClick={()=>handleRowClick(order._id)}

@@ -6,8 +6,8 @@ const OrderManagement = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user } = useSelector((state : any) => state.auth);
-  const {orders,loading,error}=useSelector((state : any)=>state.adminOrder)
+  const { user } = useSelector((state ) => state.auth);
+  const {orders,loading,error}=useSelector((state )=>state.adminOrder)
 
   useEffect(() => {
     if (!user || user.role !== 'admin') {
@@ -19,7 +19,7 @@ const OrderManagement = () => {
   
 
 
-  const handleSatusChange = (orderId : any, status:any) => {
+  const handleSatusChange = (orderId , status) => {
     dispatch(UpdateOrderStatus({id:orderId,status}))
   }
   

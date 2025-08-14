@@ -9,7 +9,7 @@ const AdminHomePage = () => {
     products,
     loading: productsLoading,
     error: productsError,
-  } = useSelector((state: any) => state.adminproducts);
+  } = useSelector((state) => state.adminproducts);
 
   const {
     orders,
@@ -17,7 +17,7 @@ const AdminHomePage = () => {
     totalSales,
     loading: ordersLoading,
     error: ordersError,
-  } = useSelector((state: any) => state.adminOrder);
+  } = useSelector((state) => state.adminOrder);
 
 
 
@@ -79,7 +79,7 @@ const AdminHomePage = () => {
             </thead>
             <tbody>
               {orders.length > 0 ? (
-                orders.map((order: any) => (
+                orders.map((order) => (
                   <tr
                     key={order._id}
                     className="border-b hover:bg-gray-50 cursor-pointer"

@@ -6,7 +6,7 @@ import { logout } from "../../redux/slices/authSlice";
 import {clearCart} from "../../redux/slices/cartSlice";
 const Profile = () => {
 
-  const { user } = useSelector((state: any) => state.auth);
+  const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   

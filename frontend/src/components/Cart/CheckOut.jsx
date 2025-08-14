@@ -7,8 +7,8 @@ import axios from "axios";
 const CheckOut = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { cart, loading, error } = useSelector((state: any) => state.cart);
-  const { user } = useSelector((state: any) => state.auth);
+  const { cart, loading, error } = useSelector((state) => state.cart);
+  const { user } = useSelector((state) => state.auth);
   const [shippingAddress, setShippingAddress] = useState({
     firstName: "",
     lastName: "",
@@ -75,7 +75,7 @@ const CheckOut = () => {
     }
   };
 
-  const handleFinalizeCheckout = async (checkoutId : any) => {
+  const handleFinalizeCheckout = async (checkoutId) => {
     try {
       const response = await axios.post(
         `${
@@ -265,7 +265,7 @@ const CheckOut = () => {
       <div className="bg-gray-50 p-6 rounded-lg">
         <h3 className="text-lg mb-4">Order Summary</h3>
         <div className="border-t py-4 mb-4">
-          {cart.products.map((product: any, index: number) => (
+          {cart.products.map((product, index) => (
             <div
               key={index}
               className="flex items-start justify-between py-2 border-b"

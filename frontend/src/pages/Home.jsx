@@ -16,7 +16,7 @@ const Home = () => {
   const [bestSellerProduct, setBestSellerProduct] = useState(null);
 
   const { products, loading, error } = useSelector(
-    (state: any) => state.products
+    (state) => state.products
   );
 
   useEffect(() => {

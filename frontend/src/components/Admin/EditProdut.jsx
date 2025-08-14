@@ -11,7 +11,7 @@ const EditProductPage = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { selectedProduct, loading, error } = useSelector(
-    (state: any) => state.products
+    (state) => state.products
   );
 
   const [productData, setProductData] = useState({
@@ -66,7 +66,7 @@ const EditProductPage = () => {
           headers: { "Content-Type": "multipart/form-data" },
         }
       );
-      setProductData((prevData :any) => ({
+      setProductData((prevData) => ({
         ...prevData,
         images: [...prevData.images, { url: data.imageUrl, altText: "" }],
       }));

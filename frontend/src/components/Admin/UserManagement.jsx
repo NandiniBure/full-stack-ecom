@@ -8,8 +8,8 @@ const UserManagement = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { user } = useSelector((state : any) => state.auth);
-  const { users, loading, error } = useSelector((state : any) => state.admin);
+  const { user } = useSelector((state ) => state.auth);
+  const { users, loading, error } = useSelector((state) => state.admin);
 
  console.log(users)
 

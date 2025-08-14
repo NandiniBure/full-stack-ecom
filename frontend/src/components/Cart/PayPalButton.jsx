@@ -4,7 +4,7 @@ import {
   PayPalScriptProvide,
   PayPalScriptProvider,
 } from "@paypal/react-paypal-js";
-const PayPalButton = ({amount,onSuccess,onError}:{amount:any,onSuccess:any,onError:any}) => {
+const PayPalButton = ({amount,onSuccess,onError}) => {
   return (
     <PayPalScriptProvider
       options={{
@@ -19,7 +19,7 @@ const PayPalButton = ({amount,onSuccess,onError}:{amount:any,onSuccess:any,onErr
             purchase_units: [{ amount: { value: amount } }],
           });
         }}
-        onApprove={(data : any, actions) => {
+        onApprove={(data, actions) => {
           return actions.order.capture().then(onSuccess);
         }}
         onError={onError}

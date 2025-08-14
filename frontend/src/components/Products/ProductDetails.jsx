@@ -61,10 +61,10 @@ const ProductDetails = ({ productId }) => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { selectedProduct, loading, error, similarProducts } = useSelector(
-    (state: any) => state.products
+    (state) => state.products
   );
 
-  const { user, guestId } = useSelector((state: any) => state.auth);
+  const { user, guestId } = useSelector((state) => state.auth);
 
   const [mainImage, setMainImage] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
@@ -142,7 +142,7 @@ const ProductDetails = ({ productId }) => {
           <div className=" flex flex-col md:flex-row">
             {/* left thumbnails */}
             <div className=" hidden  md:flex flex-col space-y-4 mr-6">
-              {selectedProduct?.images?.map((image: any, index: number) => (
+              {selectedProduct?.images?.map((image, index) => (
                 <img
                   key={index}
                   src={image.url}
@@ -196,7 +196,7 @@ const ProductDetails = ({ productId }) => {
                 {selectedProduct.description}
               </p>
               <div className=" flex gap-2 mt-2">
-                {selectedProduct?.colors?.map((color: any) => (
+                {selectedProduct?.colors?.map((color) => (
                   <button
                     key={color}
                     className={`w-8 h-8 rounded-full border ${
@@ -215,7 +215,7 @@ const ProductDetails = ({ productId }) => {
               <div className="mb-4">
                 <p className="text-gray-700">Size:</p>
                 <div className="flex gap-2 mt-2">
-                  {['S','M','L','XL'].map((size : any) => (
+                  {['S','M','L','XL'].map((size ) => (
                     <button
                       onClick={() => setSelectedSize(size)}
                       key={size}

@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react/prop-types */
 import React from "react";
 import { RiDeleteBin3Line } from "react-icons/ri";
 import { useDispatch } from "react-redux";
@@ -7,32 +7,10 @@ import {
   removFromCart,
 } from "../../../redux/slices/cartSlice";
 
-interface CartContentsProps {
-  cart: any;
-  userId: string;
-  guestId: string;
-}
-
-const CartContents: React.FC<CartContentsProps> = ({
-  cart,
-  userId,
-  guestId,
-}) => {
+const CartContents = ({ cart, userId, guestId }) => {
   const dispatch = useDispatch();
 
-  const handleAddToCart = ({
-    productId,
-    delta,
-    quantity,
-    size,
-    color,
-  }: {
-    productId: string;
-    delta: number;
-    quantity: number;
-    size: string;
-    color: string;
-  }) => {
+  const handleAddToCart = ({ productId, delta, quantity, size, color }) => {
     const newQuantity = quantity + delta;
 
     if (newQuantity >= 1) {
@@ -48,7 +26,7 @@ const CartContents: React.FC<CartContentsProps> = ({
       dispatch(
         updateCartItemQuantity({
           productId,
-          quantity:delta,
+          quantity: delta,
           guestId,
           userId,
           size,
@@ -58,11 +36,7 @@ const CartContents: React.FC<CartContentsProps> = ({
     }
   };
 
-  const handleRemoveFromCart = (
-    productId: string,
-    size: string,
-    color: string
-  ) => {
+  const handleRemoveFromCart = (productId, size, color) => {
     dispatch(
       removFromCart({
         productId,
@@ -76,7 +50,7 @@ const CartContents: React.FC<CartContentsProps> = ({
 
   return (
     <div>
-      {cart.products?.map((product: any, index: number) => (
+      {cart.products?.map((product, index) => (
         <div
           className="flex items-start justify-between py-4 border-b"
           key={index}

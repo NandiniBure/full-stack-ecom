@@ -5,7 +5,7 @@ import { featchOrderDetails } from "../../redux/slices/orderSlice";
 const orderDetailsPage = () => {
   const dispatch = useDispatch();
 
-  const { orderDetails, loading, error } = useSelector((state: any) => state.orders);
+  const { orderDetails, loading, error } = useSelector((state) => state.orders);
 
   const { id } = useParams();
 
@@ -92,7 +92,7 @@ const orderDetailsPage = () => {
                 </tr>
               </thead>
               <tbody>
-                {orderDetails?.orderItems?.map((item : any) => (
+                {orderDetails?.orderItems?.map((item ) => (
                   <tr key={item.productId} className="border-b">
                     <td className="py-2 px-4 flex items-center">
                       <img

@@ -6,8 +6,8 @@ import { clearCart } from "../../redux/slices/cartSlice";
 const OrderConfirmationPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { checkout } = useSelector((state: any) => state.checkout);
-  const calculatedEstimatedDelivery = (createdAt : any) => {
+  const { checkout } = useSelector((state) => state.checkout);
+  const calculatedEstimatedDelivery = (createdAt ) => {
     const orderDate = new Date(createdAt);
     orderDate.setDate(orderDate.getDate() + 10);
     return orderDate.toLocaleDateString();
@@ -48,7 +48,7 @@ const OrderConfirmationPage = () => {
           </div>
           {/* order items */}
           <div className="mb-20">
-            {checkout?.checkoutItems?.map((item : any) => (
+            {checkout?.checkoutItems?.map((item) => (
               <div key={item.productId} className="flex items-center mb-4">
                 <img
                   src={item.image}

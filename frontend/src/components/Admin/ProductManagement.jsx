@@ -5,7 +5,7 @@ import {featchAdminProducts,deleteProduct} from "../../../redux/slices/adminProd
 const ProductManagement = () => {
 
   const dispatch = useDispatch();
-  const {products,loading,error}=useSelector((state : any)=>state.adminproducts)
+  const {products,loading,error}=useSelector((state )=>state.adminproducts)
 
   useEffect(() => {
     dispatch(featchAdminProducts())
@@ -36,7 +36,7 @@ const ProductManagement = () => {
           </thead>
           <tbody>
             {products.length > 0 ? (
-              products.map((product : any) => (
+              products.map((product ) => (
                 <tr
                   key={product._id}
                   className="border-b hover:bg-gray-50 cursor-pointer"

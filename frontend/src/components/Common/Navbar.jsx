@@ -18,17 +18,17 @@ const Navbar = () => {
     setNavDrawerOpen(!navDrawerOpen);
   };
 
-  const {user} = useSelector((state: any) => state.auth);
+  const {user} = useSelector((state) => state.auth);
 
   const toggleCartDrawer = () => {
     setDrawerOpen(!drawerOpen);
   };
 
-  const { cart } = useSelector((state: any) => state.cart);
+  const { cart } = useSelector((state) => state.cart);
 
   const cartItemCount =
     cart?.products?.reduce(
-      (count: number, product: any) => count + product.quantity,
+      (count, product) => count + product.quantity,
       0
     ) || 0;
 

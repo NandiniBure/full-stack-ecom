@@ -14,7 +14,7 @@ export const CollectionPage = () => {
 
   const dispatch = useDispatch();
   const { products, loading, error } = useSelector(
-    (state: any) => state.products
+    (state) => state.products
   );
   const queryParams = Object.fromEntries([...searchParams]);
 
