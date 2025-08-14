@@ -22,6 +22,7 @@ export const featchCart = createAsyncThunk(
   "cart/fetchCart",
   async ({ userId, guestId }, { rejectWithValue }) => {
     try {
+      console.log(userId,guestId)
       const respon = await axios.get(
         `${import.meta.env.VITE_BACKEND_URL}/api/cart`,
         {
