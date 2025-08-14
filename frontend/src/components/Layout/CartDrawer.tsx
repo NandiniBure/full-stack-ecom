@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { featchCart } from "../../../redux/slices/cartSlice";
 
-const CartDrawer = ({ drawerOpen, toggleCartDrawer }) => {
+const CartDrawer = ({ drawerOpen, toggleCartDrawer }: { drawerOpen : any, toggleCartDrawer : any }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user, guestId } = useSelector((state: any) => state.auth);

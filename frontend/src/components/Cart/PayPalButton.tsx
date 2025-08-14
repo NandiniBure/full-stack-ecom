@@ -19,7 +19,7 @@ const PayPalButton = ({amount,onSuccess,onError}:{amount:any,onSuccess:any,onErr
             purchase_units: [{ amount: { value: amount } }],
           });
         }}
-        onApprove={(data, actions) => {
+        onApprove={(data : any, actions) => {
           return actions.order.capture().then(onSuccess);
         }}
         onError={onError}
