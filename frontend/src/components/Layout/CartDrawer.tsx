@@ -10,15 +10,12 @@ const CartDrawer = ({ drawerOpen, toggleCartDrawer }) => {
   const dispatch = useDispatch();
   const { user, guestId } = useSelector((state: any) => state.auth);
   const { cart } = useSelector((state: any) => state.cart);
-  const userId = user ? user._id : "";
-
-
-
+  const userId = user ? user.id : "";
 
 
   useEffect(() => {
     dispatch(featchCart({ userId, guestId }));
-  },[])
+  },[dispatch])
 
 
 

@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const featchUsers = createAsyncThunk("admin/fetchUsers", async () => {
-  console.log("fkjdns");
+ 
   const response = await axios.get(
     `${import.meta.env.VITE_BACKEND_URL}/api/admin/user`,
     {
@@ -37,7 +37,7 @@ export const updateUser = createAsyncThunk(
   "admin/updatedUser",
   async ({ id, name, email, role }, { rejectWithValue }) => {
     try {
-      console.log(id, name, email, role);
+    
       const response = await axios.put(
         `${import.meta.env.VITE_BACKEND_URL}/api/admin/user/${id}`,
         {
@@ -51,7 +51,6 @@ export const updateUser = createAsyncThunk(
           },
         }
       );
-      console.log(response.data);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -86,7 +85,7 @@ const adminSlice = createSlice({
       })
       .addCase(featchUsers.fulfilled, (state, action) => {
         state.loading = false;
-        console.log("---->", action.payload);
+       
         state.users = action.payload;
       })
       .addCase(featchUsers.rejected, (state) => {
@@ -98,7 +97,7 @@ const adminSlice = createSlice({
         const userIndex = state.users.findIndex(
           (user) => user._id === updatedUser.user._id
         );
-        console.log("------->",updatedUser)
+        
         if (userIndex !== -1) {
           state.users[userIndex] = updatedUser.user;
         }

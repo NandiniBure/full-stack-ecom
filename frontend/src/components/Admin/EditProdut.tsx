@@ -55,7 +55,7 @@ const EditProductPage = () => {
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
     const formData = new FormData();
-    console.log("file")
+   
     formData.append("image", file);
     try {
       setUploading(true);
@@ -78,7 +78,7 @@ const EditProductPage = () => {
 
   const handlesubmit = (e) => {
     e.preventDefault();
-    console.log(productData)
+
     dispatch(updateProduct({ id, productData }));
     navigate("/admin/products");
   };

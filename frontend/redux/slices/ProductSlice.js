@@ -44,11 +44,10 @@ export const featchproductbyfilters = createAsyncThunk(
 export const featchProductDetails = createAsyncThunk(
   "products/fetchProductDetails",
   async (id) => {
-    console.log(`${import.meta.env.VITE_BACKEND_URL}/api/product/${id}`);
+
     const response = await axios.get(
       `${import.meta.env.VITE_BACKEND_URL}/api/product/${id}`
     );
-    console.log(response.data)
     return response.data;
   }
 );
@@ -56,7 +55,7 @@ export const featchProductDetails = createAsyncThunk(
 export const updateProduct = createAsyncThunk(
   "products/updateProdust",
   async ({ id, productData }) => {
-    console.log(id,productData)
+   
     const response = await axios.put(
       `${import.meta.env.VITE_BACKEND_URL}/api/product/${id}`,
      productData,

@@ -41,7 +41,7 @@ useEffect(() => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData)
+  
     dispatch(addUser(formData))
     setFormData({
       name: "",

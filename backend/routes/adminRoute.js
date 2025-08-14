@@ -17,7 +17,7 @@ router.get("/", protect, Admin, async (req, res) => {
 
 router.post("/", protect, Admin, async (req, res) => {
   const { name, email, password, role } = req.body;
- console.log(name, email, password, role)
+
   try {
     let user = await User.findOne({ email });
     if (user) {
@@ -40,7 +40,8 @@ router.post("/", protect, Admin, async (req, res) => {
 
 router.put("/:id", protect, Admin, async (req, res) => {
   try {
-      console.log("------->")
+   
+    
     const user = await User.findById(req.params.id);
   
     if (user) {

@@ -89,7 +89,7 @@ router.put("/:id", protect, Admin, async (req, res) => {
 
     const product = await Product.findById(req.params.id);
 
-    console.log("Updating product with ID:", product);
+   
     if (product) {
       product.name = name || product.name;
       product.description = description || product.description;
@@ -126,7 +126,7 @@ router.put("/:id", protect, Admin, async (req, res) => {
 router.delete("/:id", protect, Admin, async (req, res) => {
   try {
 
-    console.log(req.params.id)
+    
 
     const product = await Product.findById(req.params.id);
     if (product) {
@@ -161,7 +161,7 @@ router.get("/", async (req, res) => {
     let query = {};
     let sort = {};
 
-    console.log("Query parameters:", req.query);
+   
 
     if (collection && collection.toLocaleLowerCase() !== "all") {
       query.collections = collection;
@@ -204,8 +204,7 @@ router.get("/", async (req, res) => {
       ];
     }
 
-    console.log("Query object:", sortBy);
-
+   
     if (sortBy) {
       switch (sortBy) {
         case "priceAsc":
@@ -262,7 +261,7 @@ router.get("/best-seller", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
-    console.log(product)
+   
     if (product) {
      return res.json(product);
     } else {

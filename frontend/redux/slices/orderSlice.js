@@ -18,7 +18,6 @@ export const featchUserOrder = createAsyncThunk(
         }
       );
 
-     console.log("Fetched user orders:", response.data);
 
       return response.data;
     } catch (error) {

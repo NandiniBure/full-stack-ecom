@@ -29,7 +29,6 @@ export const featchCart = createAsyncThunk(
         }
       );
 
-      
       return respon.data;
     } catch (error) {
       console.error(error);
@@ -45,8 +44,6 @@ export const addToCart = createAsyncThunk(
     { rejectWithValue }
   ) => {
     try {
-      console.log("Adding to cart:");
-
       const response = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/cart`,
         {
@@ -72,15 +69,13 @@ export const updateCartItemQuantity = createAsyncThunk(
     { rejectWithValue }
   ) => {
     try {
-
-
       const response = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/cart`,
         {
           productId,
           quantity,
           guestId,
-          userId, 
+          userId,
           size,
           color,
         }
@@ -91,7 +86,6 @@ export const updateCartItemQuantity = createAsyncThunk(
     }
   }
 );
-
 
 export const removFromCart = createAsyncThunk(
   "cart/removeFromCart",
@@ -113,9 +107,6 @@ export const mergeCart = createAsyncThunk(
   "cart/mergeCart",
   async ({ guestId, user }, { rejectWithValue }) => {
     try {
-
-      console.log("Merging cart for user:", user);
-
       const response = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/cart/merge`,
         { guestId, user },

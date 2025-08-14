@@ -5,8 +5,7 @@ export const createCheckout = createAsyncThunk(
   "checkout/createCheckout",
   async (checkoutdata, { rejectWithValue }) => {
     try {
-      console.log("Creating checkout with data:", checkoutdata);
-
+     
       const response = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/checkout`,
          checkoutdata,
@@ -17,7 +16,6 @@ export const createCheckout = createAsyncThunk(
         }
       );
 
-      console.log("Checkout created successfully:", response.data);
 
       return response.data;
     } catch (error) {
