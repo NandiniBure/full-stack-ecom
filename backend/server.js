@@ -25,6 +25,20 @@ app.get("/", (req, res) => {
   res.send("WELCOME TO RABBIT API!");
 });
 
+app.get("/api/test-db", async (req, res) => {
+  try {
+    const mongoose = require("mongoose");
+    if (mongoose.connection.readyState === 1) {
+      res.json({ status: "connected" });
+    } else {
+      res.json({ status: "not connected" });
+    }
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+
 app.use("/api/users", userRoutes);
 app.use("/api/product", productRoutes);
 app.use("/api/cart", cartRoutes);
