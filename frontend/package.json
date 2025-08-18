@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
     "@paypal/react-paypal-js": "^8.8.3",
