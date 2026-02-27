@@ -76,6 +76,14 @@ app.use("/api/admin/user", adminRoutes);
 app.use("/api/admin/products", productAdminRoutes);
 app.use("/api/admin/orders", orderAdminRoutes);
 
+app.use((err, req, res, next) => {
+  console.error("Global Error:", err.stack);
+  res.status(500).json({
+    success: false,
+    message: err.message || "Server Error"
+  });
+});
+
 const PORT = process.env.PORT || 3000;
 
 // 👉 Run server only in local/dev, not in Vercel
