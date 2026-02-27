@@ -48,7 +48,7 @@ app.use(
 
 
 app.get("/", (req, res) => {
-  res.send("WELCOME TO RABBIT Full Stack API!");
+  res.send("WELCOME TO RABBIT Full  API!");
 });
 
 app.get("/api/test-db", async (req, res) => {
