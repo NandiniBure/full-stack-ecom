@@ -24,7 +24,7 @@ app.use(cors());
 app.use(
   cors({
     origin:
-      "https://full-stack-ecom-7ci2eo37i-nandinibures-projects.vercel.app",
+      "https://full-stack-ecom-xtle.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
