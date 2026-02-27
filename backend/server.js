@@ -32,7 +32,7 @@ app.use(
 app.options("*", cors()); // important for preflight
 
 app.get("/", (req, res) => {
-  res.send("WELCOME TO RABBIT API!");
+  res.send("WELCOME TO RABBIT Full Stack API!");
 });
 
 app.get("/api/test-db", async (req, res) => {
