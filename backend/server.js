@@ -23,11 +23,13 @@ app.use(cors());
 
 app.use(
   cors({
-    origin:
-      "https://full-stack-ecom-xtle.vercel.app",
+    origin: "https://full-stack-ecom-xtle.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
   })
 );
+
+app.options("*", cors()); // important for preflight
 
 app.get("/", (req, res) => {
   res.send("WELCOME TO RABBIT API!");
