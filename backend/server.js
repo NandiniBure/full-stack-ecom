@@ -19,7 +19,23 @@ connectDB();
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://full-stack-ecom-xtle.vercel.app"
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true,
+}));
 
 app.use(
   cors({
@@ -29,7 +45,7 @@ app.use(
   })
 );
 
-app.options("*", cors()); // important for preflight
+
 
 app.get("/", (req, res) => {
   res.send("WELCOME TO RABBIT Full Stack API!");
