@@ -21,6 +21,14 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.use(
+  cors({
+    origin:
+      "https://full-stack-ecom-7ci2eo37i-nandinibures-projects.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+  })
+);
+
 app.get("/", (req, res) => {
   res.send("WELCOME TO RABBIT API!");
 });
